@@ -40,7 +40,7 @@ module "scc_notifications" {
     scc_notification_name           = "all-active-alerts"
     org_id                          = "01234567890"
     scc_notification_description    = "My Custom Cloud Security Command Center Finding Notification Configuration"
-    notification_filter             = "state = \"ACTIVE\""
+    notification_filter             = "(state=\"ACTIVE\" AND (mute=\"UNMUTED\" OR mute=\"UNDEFINED\")) AND (severity=\"HIGH\" OR severity=\"CRITICAL\")"
 
 }
 ```

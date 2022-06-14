@@ -1,5 +1,7 @@
 # Local .terraform directories
 **/.terraform/*
+*.terraform*
+**/scc_google_chat/tmp/**
 
 # .tfstate files
 *.tfstate
