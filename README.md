@@ -1,6 +1,6 @@
 # Google Cloud SCC Notifications to Google Chat
 
-This repository contains provides example code to create Finding Notifications for Security Command Center, and sends the findings to Google Chat using a Webhook.
+This repository provides example code to create Finding Notifications for Security Command Center, and sends the findings to Google Chat using a Webhook.
 
 The infrastructure is written in Terraform, which will create the following components:
 
@@ -10,7 +10,7 @@ The infrastructure is written in Terraform, which will create the following comp
 - [GCS Object](https://cloud.google.com/storage/docs/json_api/v1/objects)
 - [Cloud Function](https://cloud.google.com/functions)
 
-The Cloud Function is written in Node.js which will parse the Pub/Sub event and send the details to a Google Chat Webhook using the a Card message with the Google Chat API.
+The Cloud Function is written in Node.js which will parse the Pub/Sub event and send the details to a Google Chat Webhook using the Card message with the Google Chat API.
 
 
 ## Prerequisites 
@@ -37,7 +37,7 @@ module "scc_notifications" {
     topic_name                      = "scc-notifications-topic"
     gchat_webhook_url               = "https://chat.googleapis.com/v1/[your-web-hook-url]"
     topic_iam_role                  = "roles/pubsub.publisher"
-    scc_notification_name           = "all-active-alerts"
+    scc_notification_name           = "Critical-High-active-alerts"
     org_id                          = "01234567890"
     scc_notification_description    = "My Custom Cloud Security Command Center Finding Notification Configuration"
     notification_filter             = "(state=\"ACTIVE\" AND (mute=\"UNMUTED\" OR mute=\"UNDEFINED\")) AND (severity=\"HIGH\" OR severity=\"CRITICAL\")"
